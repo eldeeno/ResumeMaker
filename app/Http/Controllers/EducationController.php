@@ -67,7 +67,7 @@ class EducationController extends Controller
      */
     public function show(Education $education)
     {
-        //
+        return view('education.show', compact('education'));
     }
 
     /**
@@ -78,7 +78,8 @@ class EducationController extends Controller
      */
     public function edit(Education $education)
     {
-        //
+        // return $education;
+        return view('education.edit', compact('education'));
     }
 
     /**
@@ -90,7 +91,18 @@ class EducationController extends Controller
      */
     public function update(Request $request, Education $education)
     {
-        //
+        // return $request->all();
+        $request->validate([
+            'school_name' => 'required',
+            'school_location' => 'required',
+            'field' => 'required',
+            'qualification' => 'required',
+            'started_at' => 'required|date',
+            'graduated_at' => 'required|date'
+        ]);
+
+        $education->update($request->all());
+        return redirect()->route('education.index');
     }
 
     /**
