@@ -20,7 +20,7 @@
 						  	</div>
 
 						  	<div class="form-group">
-						    	<label for="school_location">Lastname</label>
+						    	<label for="school_location">School Location</label>
 						    	<input type="text" name="school_location" class="form-control" id="school_location" placeholder="Enter school location" value="{{ $education->school_location }}">
 						    	@error('school_location')
 								    <small class="form-text text-danger">{{ $message }}.</small>
