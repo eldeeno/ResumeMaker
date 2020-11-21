@@ -18,7 +18,7 @@
 								</div>
 							</div>
 						</div>
-						<a class="btn btn-primary" href="{{ route('education.index') }}">Close</a>
+						<a class="btn btn-primary mt-3" href="{{ route('education.index') }}">Close</a>
 					</div>
 				</div>
 			</div>

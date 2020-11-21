@@ -31,6 +31,7 @@
 							@endforeach
 						</div>
 						<a class="btn btn-info" href="{{ route('education.create') }}">Add Qualification</a>
+						<a class="btn btn-info float-right" href="{{ route('experience.create') }}">Add Experience</a>
 					</div>
 				</div>
 			</div>
