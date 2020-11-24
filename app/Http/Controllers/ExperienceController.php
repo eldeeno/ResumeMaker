@@ -15,7 +15,12 @@ class ExperienceController extends Controller
     public function index()
     {
         $experiences = auth()->user()->experiences;
-        return view('experience.index', compact('experiences'));
+        if (!empty($experiences)) {
+            return view('experience.index', compact('experiences'));
+        }
+        else {
+            return view('experience.create');
+        }
     }
 
     /**

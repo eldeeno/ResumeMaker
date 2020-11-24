@@ -59,7 +59,7 @@
 								@enderror
 						  	</div>
 						  	<button type="submit" class="btn btn-primary">Submit</button>
-						  	<a href="{{ url('/') }}" class="btn btn-warning">Cancel</a>
+						  	<a href="{{ url('/experience') }}" class="btn btn-warning">Cancel</a>
 						</form>
 					</div>
 				</div>

@@ -18,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        .active {
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -71,8 +77,21 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item {{ request()->is('user-info') ? 'active' : '' }}"><a href="{{ route('user-info.index') }}">Persional Info</a></li>
+                                <li class="breadcrumb-item {{ request()->is('education') ? 'active' : '' }}"><a href="{{ route('education.index') }}">Education</a></li>
+                                <li class="breadcrumb-item {{ request()->is('experience') ? 'active' : '' }}"><a href="{{ route('experience.index') }}">Work Experience</a></li>
+                                <li class="breadcrumb-item {{ request()->is('skill') ? 'active' : '' }}"><a href="{{ route('skill.index') }}">Skill Set</a></li>
+                            </ol>
+                        </nav>
+                    </div>    
+                </div>
+            </div>
             @yield('content')
         </main>
     </div>

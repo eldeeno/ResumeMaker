@@ -7,6 +7,8 @@
 				<div class="card">
 					<div class="card-header">Work Experience</div>
 					<div class="card-body">
+						<a class="btn btn-info mb-3" href="{{ route('experience.create') }}">Add Work Experience</a>
+						<a class="btn btn-info float-right" href="{{ route('skill.index') }}">Skill Sets</a>
 						<div class="row">
 							@foreach($experiences as $experience)
 							<div class="col-sm-6 mb-3">
@@ -30,7 +32,6 @@
 							</div>
 							@endforeach
 						</div>
-						<a class="btn btn-info" href="{{ route('experience.create') }}">Add Work Experience</a>
 					</div>
 				</div>
 			</div>

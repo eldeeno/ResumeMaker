@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user-info', 'UserInfoController')->middleware('auth');
 Route::resource('education', 'EducationController')->middleware('auth');
 Route::resource('experience', 'ExperienceController')->middleware('auth');
+Route::resource('skill', 'SkillController')->middleware('auth');

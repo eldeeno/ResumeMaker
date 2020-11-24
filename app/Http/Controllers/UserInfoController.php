@@ -14,7 +14,13 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        //
+        $info = auth()->user()->info;
+        if (!empty($info)) {
+            return view('userInfo.index', compact('info'));
+        }
+        else {
+            return view('userInfo.create');
+        }
     }
 
     /**
@@ -41,19 +47,12 @@ class UserInfoController extends Controller
             'email' => 'required|email',
             'phone' => 'required|digits:11',
             'address' => 'required',
+            'summary' => 'required',
         ]);
-
-        // return $request->all();
-        $userInfo = new UserInfo();
-        $userInfo->firstname = $request->input('firstname');
-        $userInfo->lastname = $request->input('lastname');
-        $userInfo->email = $request->input('email');
-        $userInfo->phone = $request->input('phone');
-        $userInfo->user_id = auth()->id();
-        $userInfo->address = $request->input('address');
-
-        $userInfo->save();
-        return redirect()->route('education.create');
+        
+        auth()->user()->info()->create($request->all());
+        
+        return redirect()->route('education.index');
     }
 
     /**
@@ -75,7 +74,7 @@ class UserInfoController extends Controller
      */
     public function edit(UserInfo $userInfo)
     {
-        //
+        return view('userInfo.edit', compact('userInfo'));
     }
 
     /**
@@ -87,7 +86,18 @@ class UserInfoController extends Controller
      */
     public function update(Request $request, UserInfo $userInfo)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|digits:11',
+            'address' => 'required',
+            'summary' => 'required',
+        ]);
+
+        $userInfo->update($request->all());
+
+        return redirect()->route('user-info.index');
     }
 
     /**
@@ -98,6 +108,7 @@ class UserInfoController extends Controller
      */
     public function destroy(UserInfo $userInfo)
     {
-        //
+        $userInfo->delete();
+        return back();
     }
 }

@@ -7,14 +7,17 @@
 				<div class="card">
 					<div class="card-header">Education Histories</div>
 					<div class="card-body">
+
+						<a class="btn btn-info mb-3" href="{{ route('education.create') }}">Add Qualification</a>
+						<a class="btn btn-info float-right" href="{{ route('experience.index') }}">Work Experience</a>
 						<div class="row">
 							@foreach($educations as $education)
 							<div class="col-sm-6 mb-3">
 								<div class="card">
 									<div class="card-body">
-										<h5 class="card-title"><strong>{{ $education->school_name }}:</strong>{{ $education->qualification }} ({{ $education->field }}).</h5>
+										<h5 class="card-title"><strong>{{ $education->school_name }}: </strong>{{ $education->qualification }} ({{ $education->field }}).</h5>
 										<p class="card-text mb-0">
-											from: {{ $education->started_at }} - {{ $education->graduated_at }}
+											<strong>From:</strong> {{ date('d-m-Y', strtotime($education->started_at)) }} <strong>To</strong> {{ date('d-m-Y', strtotime($education->graduated_at)) }}
 											<a href="{{ route('education.show', $education) }}" class="card-link">...</a>
 										</p>
 										 <br>
@@ -30,8 +33,6 @@
 							</div>
 							@endforeach
 						</div>
-						<a class="btn btn-info" href="{{ route('education.create') }}">Add Qualification</a>
-						<a class="btn btn-info float-right" href="{{ route('experience.create') }}">Add Experience</a>
 					</div>
 				</div>
 			</div>

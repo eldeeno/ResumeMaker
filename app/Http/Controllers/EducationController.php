@@ -15,7 +15,12 @@ class EducationController extends Controller
     public function index()
     {
         $educations = auth()->user()->education;
-        return view('education.index', compact('educations'));
+        if(!empty($educations)) {
+            return view('education.index', compact('educations'));
+        }
+        else {
+            return view('education.create');
+        }
     }
 
     /**
