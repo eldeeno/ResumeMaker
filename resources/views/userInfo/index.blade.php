@@ -21,7 +21,7 @@
 												<h5 class="card-title">{{ $info->summary }}</h5>
 											</div>
 										</div>
-										<h5 class="card-title  pt-3"><strong>Fullname: </strong>{{ $info->firstname }} {{ $info->lastname }}</h5>
+										<h5 class="card-title  pt-3"><strong>Fullname: </strong>{{ ucfirst($info->firstname) }} {{ ucfirst($info->lastname) }}</h5>
 										<h5 class="card-title"><strong>Email: </strong>{{ $info->email }}</h5>
 										<h5 class="card-title"><strong>Phone: </strong>{{ $info->phone }}</h5>
 										<h5 class="card-title"><strong>Address: </strong>{{ $info->address }}</h5>
