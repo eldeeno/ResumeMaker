@@ -1,5 +1,5 @@
 ## ResumeMaker
-This is a simple resume builder application which i will subsequently be adding cool functionality to. it is developed using Laravel 7.
+This is a simple resume builder application which i will subsequently be adding cool functionalities and features to. it is developed using Laravel 7.
 
 #### Screen Shots
 ![](images/1.png)
